@@ -296,6 +296,7 @@
 
         , arrow: function(){
             return this.$arrow = this.$arrow || this.tip().find(".tooltip-arrow")
+        }
 
         , validate: function () {
             if (!this.$element[0].parentNode) {
@@ -327,42 +328,42 @@
         }
 
     }
-	/* TOOLTIP PLUGIN DEFINITION
-	  * ========================= */
+    /* TOOLTIP PLUGIN DEFINITION
+     * ========================= */
 
-	  var old = $.fn.tooltip
+    var old = $.fn.tooltip
 
-	  $.fn.tooltip = function ( option ) {
-	    return this.each(function () {
-	      var $this = $(this)
-	        , data = $this.data('tooltip')
-	        , options = typeof option == 'object' && option
-	      if (!data) $this.data('tooltip', (data = new Tooltip(this, options)))
-	      if (typeof option == 'string') data[option]()
-	    })
-	  }
+    $.fn.tooltip = function ( option ) {
+        return this.each(function () {
+            var $this = $(this)
+                , data = $this.data('tooltip')
+                , options = typeof option == 'object' && option
+            if (!data) $this.data('tooltip', (data = new Tooltip(this, options)))
+            if (typeof option == 'string') data[option]()
+        })
+    }
 
-	  $.fn.tooltip.Constructor = Tooltip
+    $.fn.tooltip.Constructor = Tooltip
 
-	  $.fn.tooltip.defaults = {
-	    animation: true
-	  , placement: 'top'
-	  , selector: false
-	  , template: '<div class="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'
-	  , trigger: 'hover focus'
-	  , title: ''
-	  , delay: 0
-	  , html: false
-	  , container: false
-	  }
+    $.fn.tooltip.defaults = {
+        animation: true
+        , placement: 'top'
+        , selector: false
+        , template: '<div class="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'
+        , trigger: 'hover focus'
+        , title: ''
+        , delay: 0
+        , html: false
+        , container: false
+    }
 
 
-	 /* TOOLTIP NO CONFLICT
-	  * =================== */
+    /* TOOLTIP NO CONFLICT
+     * =================== */
 
-	  $.fn.tooltip.noConflict = function () {
-	    $.fn.tooltip = old
-	    return this
-	  }
+    $.fn.tooltip.noConflict = function () {
+        $.fn.tooltip = old
+        return this
+    }
 
-	}(window.jQuery);
+}(window.jQuery);
